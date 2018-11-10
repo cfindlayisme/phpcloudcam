@@ -10,4 +10,7 @@
 
     // Our database connection
     $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
+    // Path to our recordings used
+    define('FILE_RECORDINGS', '../recordings');
 ?>

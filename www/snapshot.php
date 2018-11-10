@@ -9,6 +9,11 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         $stmt = $db->prepare('SELECT url, content FROM snapshot_urls WHERE id = ?');
+
+        if ($stmt == false) {
+            // TO-DO: Output something to signify list is empty. For now just die
+            die('Nothing found');
+        }
         $stmt->bind_param('i',$id);
 
         $stmt->execute();

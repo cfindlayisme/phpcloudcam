@@ -16,7 +16,7 @@
         $stmt->fetch();
 
         // If jpeg (or jpg) then set the header properly
-        if ($format == 'jpeg' || $format == "jpg") {
+        if ($content == 'jpeg' || $content == "jpg") {
             header("Content-type: image/jpeg");
         }
 

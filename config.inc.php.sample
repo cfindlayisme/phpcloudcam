@@ -1,0 +1,13 @@
+<?php
+    // Copyright 2018 Chuck Findlay
+    // This software is licensed under the GNU Lesser General Public License v3.0
+
+    // Here we define our SQL database
+    define('DB_SERVER', 'localhost');
+    define('DB_USERNAME', 'phpcloudcam');
+    define('DB_PASSWORD', '');
+    define('DB_DATABASE', 'phpcloudcam');
+
+    // Our database connection
+    $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+?>

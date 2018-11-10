@@ -5,6 +5,7 @@
     // Include configuration
     include('../config.inc.php');
 
+    // Start session, check if user value is set in session, and kick user to login page if not
     session_start();
    
     $user_check = $_SESSION['luser'];

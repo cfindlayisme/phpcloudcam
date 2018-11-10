@@ -7,6 +7,8 @@
     include('../theme/header.inc.php');
 
     session_start();
+
+    $error = NULL;
    
     if($_SERVER["REQUEST_METHOD"] == "POST") {
        // username and password sent from form 
@@ -20,7 +22,7 @@
         $active = $row['active'];
        
         $count = mysqli_num_rows($result);
-        
+
         // If result matched $myusername and $mypassword, table row must be 1 row
         if( $count == 1) {
             $_SESSION['luser'] = $myusername;
@@ -43,7 +45,9 @@
                   <input type = "submit" value = " Submit "/><br />
                </form>
                
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+<?php if (!($error == NULL)) { ?>
+    <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+<?php }?>
 					
             </div>
 				

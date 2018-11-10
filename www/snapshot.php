@@ -8,12 +8,12 @@
     // Given a camera ID to use
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $sql = "SELECT url, content FROM snapshot_urls WHERE id = '$id'";
+        $stmt = $db->prepare('SELECT url, content FROM snapshot_urls WHERE id = ?');
+        $stmt->bind_param('i',$id);
 
-        $result = mysqli_query($db,$sql);
-        $obj = $result->fetch_object();
-        $url = $obj->url;
-        $format = $obj->content;
+        $stmt->execute();
+        $stmt->bind_result($url, $content);
+        $stmt->fetch();
 
         // If jpeg (or jpg) then set the header properly
         if ($format == 'jpeg' || $format == "jpg") {

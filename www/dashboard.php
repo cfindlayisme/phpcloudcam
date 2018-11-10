@@ -5,6 +5,9 @@
     // Our session bit needs to be in here first. It'll kick out anyone who is not logged in
     include('../session.php');
 
-    // If not rediected by now then they are logged in, so redirect to dashboard
-    header('Location: dashboard.php');
+    include('../theme/header.inc.php');
+?>
+You're logged in! This is a placeholder page. To logout go to <a href="logout.php">this spot.</a>
+<?php
+    include ('../theme/footer.inc.php');
 ?>

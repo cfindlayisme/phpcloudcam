@@ -24,4 +24,7 @@
         echo file_get_contents($url);
     }
 
+    // Nothing useful was sent to us
+    http_response_code(400);
+
 ?>

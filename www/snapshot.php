@@ -2,9 +2,26 @@
     // Copyright 2018 Chuck Findlay
     // This software is licensed under the GNU Lesser General Public License v3.0
 
-    // Include configuration
-    include('../config.inc.php');
-
     // No need for header or footer - we just output a snapshot. But users do need to be logged in
     include('../session.php');
+
+    // Given a camera ID to use
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $sql = "SELECT url, content FROM snapshot_urls WHERE id = '$id'";
+
+        $result = mysqli_query($db,$sql);
+        $obj = $result->fetch_object();
+        $url = $obj->url;
+        $format = $obj->content;
+
+        // If jpeg (or jpg) then set the header properly
+        if ($format == 'jpeg' || $format == "jpg") {
+            header("Content-type: image/jpeg");
+        }
+
+        // Grab the snapshot URL and send it out
+        echo file_get_contents($url);
+    }
+
 ?>

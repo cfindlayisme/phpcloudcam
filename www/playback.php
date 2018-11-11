@@ -41,6 +41,20 @@
 
         // TO-DO: JSON listing of recordings available with their IDs
 
+    } elseif(isset($_GET['info']) && isset($_GET['id'])) {
+        $stmt = $db->prepare('SELECT timestamp, content FROM recordings WHERE cameraid = ?');
+
+        if ($stmt == false) {
+            // TO-DO: Output something to signify list is empty. For now just die
+            die('Nothing found');
+        }
+        $stmt->bind_param('i',$_GET['id']);
+
+        $stmt->execute();
+        $stmt->bind_result($timestamp, $content);
+        $stmt->fetch();
+
+        // TO-DO: Spit out JSON with info about recording requested
     }
 
     // Nothing useful was sent to us

@@ -36,10 +36,14 @@
         $stmt->bind_param('ii',$_GET['cameraid'], $listLimit);
 
         $stmt->execute();
-        $stmt->bind_result($listing, $timestamp);
-        $stmt->fetch();
+        $stmt->bind_result($id, $timestamp);
 
-        // TO-DO: JSON listing of recordings available with their IDs
+        $data = array();
+        while ( $stmt->fetch() ) {
+            $data[] = array('id' => $id, 'timestamp' => $timestamp);
+        }
+
+        print json_encode($data);
 
     } elseif(isset($_GET['info']) && isset($_GET['id'])) {
         $stmt = $db->prepare('SELECT timestamp, content FROM recordings WHERE cameraid = ?');

@@ -46,7 +46,7 @@
         print json_encode($data);
 
     } elseif(isset($_GET['info']) && isset($_GET['id'])) {
-        $stmt = $db->prepare('SELECT timestamp, content FROM recordings WHERE cameraid = ?');
+        $stmt = $db->prepare('SELECT timestamp, content FROM recordings WHERE id = ?');
 
         if ($stmt == false) {
             // TO-DO: Output something to signify list is empty. For now just die
@@ -56,9 +56,12 @@
 
         $stmt->execute();
         $stmt->bind_result($timestamp, $content);
-        $stmt->fetch();
 
-        // TO-DO: Spit out JSON with info about recording requested
+        // Should only be one result since ID is the unique key
+        $stmt->fetch();
+        $data = array('id' => $id, 'timestamp' => $timestamp, 'content' => $content);
+
+        print json_encode($data);
     }
 
     // Nothing useful was sent to us

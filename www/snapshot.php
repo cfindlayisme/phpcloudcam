@@ -3,7 +3,7 @@
     // This software is licensed under the GNU Lesser General Public License v3.0
 
     // No need for header or footer - we just output a snapshot. But users do need to be logged in
-    include('../session.php');
+    include('..' . DIRECTORY_SEPARATOR . 'session.php');
 
     // Given a camera ID to use
     if (isset($_GET['cameraid'])) {

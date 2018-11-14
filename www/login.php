@@ -2,7 +2,7 @@
     // Copyright 2018 Chuck Findlay
     // This software is licensed under the GNU Lesser General Public License v3.0
 
-    include('../config.inc.php');
+    include('..' . DIRECTORY_SEPARATOR . 'config.inc.php');
 
     session_start();
 

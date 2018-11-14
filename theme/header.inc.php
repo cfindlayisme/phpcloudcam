@@ -15,6 +15,8 @@
 </head>
 <body>
   <header class="container-fluid">
-            <div id="headerText"></div>
+      <p class="pull-right"> 
+      <div class="pull-left">PHPCloudCam</div><a class="nav-link" href="logout.php"><i class="pull-right" data-feather="log-out"></i></a>
+      </p>
   </header>
   <div class="container-fluid fill">

@@ -10,6 +10,14 @@ body {
   min-height: calc(100vh - 100px);
 }
 
+.svg-icon {
+  height: 1em;
+  margin-top: -4px;
+  pointer-events: none;
+  vertical-align: middle;
+  width: 1em;
+}
+
 .sidenav {
   background-color: #f1f1f1;
   max-width: 300px;

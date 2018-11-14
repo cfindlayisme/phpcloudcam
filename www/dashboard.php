@@ -13,7 +13,6 @@
       <h2 id="pageTitle"></h2>
       <div id="pageContent"></div>
     </div>
-  </div>
 
 <?php
     include ('../theme/footer.inc.php');

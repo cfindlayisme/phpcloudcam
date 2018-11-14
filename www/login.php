@@ -31,37 +31,44 @@
         }
     }
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Sign in to PHPMyCloud</title>
 
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="<?php print BOOTSTRAP_CSS; ?>">
 
-    <!-- Custom styles for this template -->
     <link href="css/signin.css" rel="stylesheet">
   </head>
-        <body class="text-center">
-            <form class="form-signin" action="" method = "post">
-                <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
-                <label for="inputUsername" class="sr-only">Username</label>
-                <input type="username" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
-                
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-                
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <body>
+            <div class="container">
+                    <body class="text-center">
+                        <form class="form-signin" action="" method="post">
+                            <h1 class="form-signin-heading">Sign in</h1>
+                            <label for="inputUsername" class="sr-only">Username</label>
+                            <input type="username" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
+                            
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+                            
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 
-                <?php if (!($error == NULL)) { ?>
-                    <div><?php echo $error; ?></div>
-                <?php }?>
-            </form>
-            
-			
+                            <?php if (!($error == NULL)) { ?>   
+                                <div class="alert alert-danger fade in">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>Error!</strong> <?php echo $error; ?>
+                                </div>
+                            <?php }?>
+                        </form>
+                
+                <!-- jQuery -->
+                <script src="<?php print JQUERY_JS; ?>"></script>
+                <!-- Bootstrap -->
+                <script src="<?php print BOOTSTRAP_JS; ?>"></script>
+            </div>
         </body>
 </html>

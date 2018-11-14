@@ -8,19 +8,17 @@
   <title><?php // Todo: title ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="<?php print BOOTSTRAP_CSS; ?>">
-  <script src="<?php print JQUERY_JS; ?>"></script>
-  <script src="<?php print BOOTSTRAP_JS; ?>"></script>
-  <style>
-    .row.content {height: 700px}
-    
-    html, body {
-        height: 100%;
-    }
 
-    /* 90.5 seems to be the magic spot */
-    .wrap {
-        height: 90.5%;
+  <link rel="stylesheet" href="<?php print BOOTSTRAP_CSS; ?>">
+  <style>
+    .row.content {
+        height: 700px;
+    }
+    
+    body {
+        height: 100%;
+        width: 100%;
+        position: absolute;
     }
 
     /* Set gray background color and 100% height */
@@ -47,6 +45,4 @@
   </style>
 </head>
 <body>
-<div class="wrap">
 <div class="container-fluid">
-    

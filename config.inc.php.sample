@@ -12,7 +12,8 @@
     define('BOOTSTRAP_CSS', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
     define('BOOTSTRAP_JS', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
     define('JQUERY_JS', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js');
-
+    define('FEATHER_JS', 'https://unpkg.com/feather-icons/dist/feather.min.js');
+    
     // Our database connection
     $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 

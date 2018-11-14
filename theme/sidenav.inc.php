@@ -3,24 +3,22 @@
             <h4 class="siteTitle">PHPCloudCam</h4>
 
             <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="dashboard.php">Dashboard</a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li class="active"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
             </ul><br>
 
-            <h4 class="cameraList">Live Camera Links</h4>
-            <div id="liveCameraList">
-            </div><br>
+            <h4>Camera Snapshots</h4>
+            <div id="snapCameraList"></div><br>
 
             <div class="input-group">
             <h4>Recent Recordings</h4>
             <div id="recentRecordings"></div>
 
-                
-
+        </div>
     </div>
 
     <script type ="text/javascript">
-    window.onload = liveCamerasList();
+    window.onload = snapCamerasList();
     window.onload = recentRecordingsList();
 
     function liveView(cameraid) {
@@ -56,8 +54,8 @@
         xmlhttp.send();
     }
 
-    // List live cameras on the sidebar
-    function liveCamerasList() {
+    // List snapshot cameras on the sidebar
+    function snapCamerasList() {
         var obj, dbParam, xmlhttp, myObj, x, txt = '';
         obj = { table: 'cameraLabels', limit: 16 };
         dbParam = JSON.stringify(obj);
@@ -65,12 +63,12 @@
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 myObj = JSON.parse(this.responseText);
-                txt += '<table class="nav nav-pills nav-stacked">';
+                txt += '<ul class="nav nav-pills nav-stacked">';
                 for (x in myObj) {
-                    txt += '<tr><td>' + myObj[x].label + '</td> <td><a href="#" onclick="snapShot(\'' + myObj[x].label + '\', ' + myObj[x].cameraid + ');">(Snapshot)</a></td></tr>';
+                    txt += '<li><a href="#" class="nav-link" onclick="snapShot(\'' + myObj[x].label + '\', ' + myObj[x].cameraid + ');">' + myObj[x].label + '</a></li>';
                 }
-                txt += '</table>';
-                document.getElementById('liveCameraList').innerHTML = txt;
+                txt += '</ul>';
+                document.getElementById('snapCameraList').innerHTML = txt;
             }
         }
         xmlhttp.open('GET', 'stream.php?labels=&limit=16', true);

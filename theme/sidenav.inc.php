@@ -12,17 +12,16 @@
             </div><br>
 
             <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Recordings">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </span>
-            </div>
+            <h4>Recent Recordings</h4>
+            <div id="recentRecordings"></div>
+
+                
+
     </div>
 
     <script type ="text/javascript">
     window.onload = liveCamerasList();
+    window.onload = recentRecordingsList();
 
     function liveView(cameraid) {
 
@@ -31,6 +30,30 @@
     function snapShot(label, cameraid) {
         document.getElementById('pageContent').innerHTML = '<img src="snapshot.php?cameraid=' + cameraid + '"><br>';
         document.getElementById('pageTitle').innerHTML = 'Snapshot of ' + label;
+    }
+
+        // List live cameras on the sidebar
+    function recentRecordingsList() {
+        var obj, dbParam, xmlhttp, myObj, x, txt = '';
+        obj = { table: 'recentRecordings', limit: 16 };
+        dbParam = JSON.stringify(obj);
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                myObj = JSON.parse(this.responseText);
+                txt += '<select>';
+                for (x in myObj) {
+                    txt += '<option id="' + myObj[x].id + '">' + myObj[x].timestamp + '</option>';
+                }
+                txt += '</select><button class="btn btn-default" type="button" onclick="">';
+                txt += '<span class="glyphicon glyphicon-search"></span>';
+                txt += '</button>';
+                document.getElementById('recentRecordings').innerHTML = txt;
+            }
+        }
+        xmlhttp.open('GET', 'playback.php?getrecent=&limit=16', true);
+        xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xmlhttp.send();
     }
 
     // List live cameras on the sidebar

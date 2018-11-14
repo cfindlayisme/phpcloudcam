@@ -62,8 +62,36 @@
         $data = array('id' => $_GET['id'], 'timestamp' => $timestamp, 'content' => $content);
 
         print json_encode($data);
-    }
 
-    // Nothing useful was sent to us
-    http_response_code(400);
+    } elseif(isset($_GET['getrecent'])) {
+
+        $listLimit = 16;
+        if (isset($_GET['limit'])) {
+            $listLimit = $_GET['limit'];
+        }
+
+        $stmt = $db->prepare('SELECT id, timestamp FROM recordings LIMIT ?');
+
+        if ($stmt == false) {
+            // TO-DO: Output something to signify list is empty. For now just die
+            die('Nothing found');
+        }
+        $stmt->bind_param('i',$listLimit);
+
+        $stmt->execute();
+        $stmt->bind_result($id, $timestamp);
+
+        $data = array();
+        while ( $stmt->fetch() ) {
+            $data[] = array('id' => $id, 'timestamp' => $timestamp);
+        }
+
+        print json_encode($data);
+
+    } else {
+
+        // Nothing useful was sent to us
+        http_response_code(400);
+
+    }
 ?>

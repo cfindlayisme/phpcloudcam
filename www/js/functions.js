@@ -2,13 +2,11 @@ function viewLiveView(cameraid) {
 
 }
 
-function viewSnapShot(label, cameraid) {
-    document.getElementById('pageContent').innerHTML = '<img src="snapshot.php?cameraid=' + cameraid + '"><br>';
-    document.getElementById('pageTitle').innerHTML = 'Snapshot of ' + label;
+function viewSnapshot(cameraid) {
+    document.getElementById('snaphotSpace').innerHTML = '<img src="snapshot.php?cameraid=' + cameraid + '"><br>';
 }
 
-    // List live cameras on the sidebar
-function recentRecordingsList() {
+function viewRecentRecordings() {
     var obj, dbParam, xmlhttp, myObj, x, txt = '';
     obj = { table: 'recentRecordings', limit: 16 };
     dbParam = JSON.stringify(obj);
@@ -17,13 +15,14 @@ function recentRecordingsList() {
         if (this.readyState == 4 && this.status == 200) {
             myObj = JSON.parse(this.responseText);
             txt += '<select>';
+            txt += '<option disabled selected value>--</option>';
             for (x in myObj) {
-                txt += '<option id="' + myObj[x].id + '">' + myObj[x].timestamp + '</option>';
+                txt += '<option value="' + myObj[x].id + '">' + myObj[x].timestamp + '</option>';
             }
-            txt += '</select><button class="btn btn-default" type="button" onclick="">';
-            txt += '<span class="glyphicon glyphicon-search"></span>';
-            txt += '</button>';
-            document.getElementById('recentRecordings').innerHTML = txt;
+            txt += '</select>';
+            txt += '<div id="recordingsPlaybackSpace"></div>';
+            document.getElementById('pageContent').innerHTML = txt;
+            document.getElementById('pageTitle').innerHTML = 'Recent Recordings';
         }
     }
     xmlhttp.open('GET', 'playback.php?getrecent=&limit=16', true);
@@ -32,7 +31,7 @@ function recentRecordingsList() {
 }
 
 // List snapshot cameras on the sidebar
-function snapCamerasList() {
+function viewSnapshotsList() {
     var obj, dbParam, xmlhttp, myObj, x, txt = '';
     obj = { table: 'cameraLabels', limit: 16 };
     dbParam = JSON.stringify(obj);
@@ -40,15 +39,18 @@ function snapCamerasList() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             myObj = JSON.parse(this.responseText);
-            txt += '<ul class="nav nav-pills nav-stacked">';
+            txt += '<select onchange="if (this.selectedIndex) viewSnapshot(this.selectedIndex);">';
+            txt += '<option disabled selected value>--</option>';
             for (x in myObj) {
-                txt += '<li><a href="#" class="nav-link" onclick="viewSnapShot(\'' + myObj[x].label + '\', ' + myObj[x].cameraid + ');">' + myObj[x].label + '</a></li>';
+                txt += '<option value="' + myObj[x].cameraid + '">' + myObj[x].label + '</option>';
             }
-            txt += '</ul>';
-            document.getElementById('snapCameraList').innerHTML = txt;
+            txt += '</select>';
+            txt += '<div id="snapshotSpace"></div>';
+            document.getElementById('pageContent').innerHTML = txt;
+            document.getElementById('pageTitle').innerHTML = 'Live Snapshots';
         }
     }
-    xmlhttp.open('GET', 'stream.php?labels=&limit=16', true);
+    xmlhttp.open('GET', 'snapshot.php?labels=&limit=16', true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xmlhttp.send();
 }

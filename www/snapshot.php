@@ -27,9 +27,33 @@
 
         // Grab the snapshot URL and send it out
         echo file_get_contents($url);
-    }
 
-    // Nothing useful was sent to us
-    http_response_code(400);
+    } elseif(isset($_GET['labels'])) {
+
+        // 16 limit if nothing set
+        if (isset($_GET['limit'])) {
+            $limit = $_GET['limit'];
+        } else {
+            $limit = 16;
+        }
+
+        $stmt = $db->prepare('SELECT label, cameraid FROM cameras LIMIT ?');
+        $stmt->bind_param('i',$limit);
+
+        $stmt->execute();
+        $stmt->bind_result($label, $cameraid);
+
+        $data = array();
+        while ( $stmt->fetch() ) {
+            $data[] = array('label' => $label, 'cameraid' => $cameraid);
+        }
+
+        print json_encode($data);
+    } else {
+
+        // Nothing useful was sent to us
+        http_response_code(400);
+
+    }
 
 ?>

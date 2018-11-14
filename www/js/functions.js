@@ -3,7 +3,7 @@ function viewLiveView(cameraid) {
 }
 
 function viewSnapshot(cameraid) {
-    document.getElementById('snapshotSpace').innerHTML = '<img src="snapshot.php?cameraid=' + cameraid + '"><br>';
+    document.getElementById('snapshotSpace').innerHTML = '<img class="img-fluid img-rounded" src="snapshot.php?cameraid=' + cameraid + '"><br>';
 }
 
 function viewRecentRecordings() {
@@ -44,7 +44,7 @@ function viewSnapshotsList() {
             for (x in myObj) {
                 txt += '<option value="' + myObj[x].cameraid + '">' + myObj[x].label + '</option>';
             }
-            txt += '</select>';
+            txt += '</select><br><br>';
             txt += '<div id="snapshotSpace"></div>';
             document.getElementById('pageContent').innerHTML = txt;
             document.getElementById('pageTitle').innerHTML = 'Live Snapshots';

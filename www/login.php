@@ -48,7 +48,7 @@
             <div class="container">
                     <body class="text-center">
                         <form class="form-signin" action="" method="post">
-                            <h1 class="form-signin-heading">Sign in</h1>
+                            <h1 class="form-signin-heading">PHPMyCloud</h1>
                             <label for="inputUsername" class="sr-only">Username</label>
                             <input type="username" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
                             

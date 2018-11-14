@@ -7,7 +7,7 @@ function viewRecording(id) {
 }
 
 function viewSnapshot(cameraid) {
-    document.getElementById('snapshotSpace').innerHTML = '<img class="img-fluid img-rounded" src="snapshot.php?cameraid=' + cameraid + '"><br>';
+    document.getElementById('snapshotSpace').innerHTML = '<img width="560" class="img-fluid img-rounded" src="snapshot.php?cameraid=' + cameraid + '"><br>';
 }
 
 function viewRecentRecordings() {

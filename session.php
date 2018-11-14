@@ -8,16 +8,6 @@
     // Start session, check if user value is set in session, and kick user to login page if not
     session_start();
    
-    $user_check = $_SESSION['luser'];
-
-    $lstmt = $db->prepare('SELECT username FROM admin WHERE username = ?');
-    $lstmt->bind_param('s',$lUsername);
-
-    $lstmt->execute();
-    $lstmt->bind_result($login_session);
-    $lstmt->fetch();
-    $lstmt->close();
-   
     if(!isset($_SESSION['luser'])){
         header("Location: login.php");
     }

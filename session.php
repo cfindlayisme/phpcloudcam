@@ -9,12 +9,14 @@
     session_start();
    
     $user_check = $_SESSION['luser'];
-   
-    $ses_sql = mysqli_query($db, "SELECT username FROM admin WHERE username = '$user_check' ");
-   
-    $row = mysqli_fetch_array($ses_sql, MYSQLI_ASSOC);
-   
-    $login_session = $row['username'];
+
+    $lstmt = $db->prepare('SELECT username FROM admin WHERE username = ?');
+    $lstmt->bind_param('s',$lUsername);
+
+    $lstmt->execute();
+    $lstmt->bind_result($login_session);
+    $lstmt->fetch();
+    $lstmt->close();
    
     if(!isset($_SESSION['luser'])){
         header("Location: login.php");

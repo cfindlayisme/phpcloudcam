@@ -4,8 +4,6 @@
 
     include('../config.inc.php');
 
-    include('../theme/header.inc.php');
-
     session_start();
 
     $error = NULL;
@@ -33,28 +31,37 @@
         }
     }
 ?>
-      <div align="center">
-         <div style = "width:300px; border: solid 1px #333333;" align="left">
-            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-				
-            <div style = "margin:30px">
-               
-               <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                  <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-                  <input type = "submit" value = " Submit "/><br />
-               </form>
-               
-<?php if (!($error == NULL)) { ?>
-    <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-<?php }?>
-					
-            </div>
-				
-         </div>
-			
-      </div>
-<?php
 
-    include ('../theme/footer.inc.php');
-?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Sign in to PHPMyCloud</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="<?php print BOOTSTRAP_CSS; ?>">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+  </head>
+        <body class="text-center">
+            <form class="form-signin" action="" method = "post">
+                <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input type="username" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
+                
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+                
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+                <?php if (!($error == NULL)) { ?>
+                    <div><?php echo $error; ?></div>
+                <?php }?>
+            </form>
+            
+			
+        </body>
+</html>

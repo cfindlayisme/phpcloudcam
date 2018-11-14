@@ -38,7 +38,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sign in to PHPMyCloud</title>
+    <title>Sign in to PHPCloudCam</title>
 
     <link rel="stylesheet" href="<?php print BOOTSTRAP_CSS; ?>">
 
@@ -48,7 +48,7 @@
             <div class="container">
                     <body class="text-center">
                         <form class="form-signin" action="" method="post">
-                            <h1 class="form-signin-heading">PHPMyCloud</h1>
+                            <h1 class="form-signin-heading">PHPCloudCam</h1>
                             <label for="inputUsername" class="sr-only">Username</label>
                             <input type="username" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
                             

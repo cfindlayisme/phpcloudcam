@@ -15,5 +15,5 @@
     </div>
 
 <?php
-    include ('../theme/footer.inc.php');
+    include ('..' . DIRECTORY_SEPARATOR . 'theme' . DIRECTORY_SEPARATOR . 'footer.inc.php');
 ?>

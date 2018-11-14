@@ -18,6 +18,5 @@
         <script src="<?php print JQUERY_JS; ?>"></script>
         <!-- Bootstrap -->
         <script src="<?php print BOOTSTRAP_JS; ?>"></script>
-    </div>
     </body>
 </html>

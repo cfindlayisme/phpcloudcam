@@ -20,7 +20,7 @@
         $stmt->fetch();
 
         // TO-DO: output content-type header
-        print file_get_contents(FILE_RECORDINGS + DIRECTORY_SEPARATOR + $file);
+        print file_get_contents(FILE_RECORDINGS . DIRECTORY_SEPARATOR . $file);
 
     // List request of recordings for a given camera ID
     } elseif (isset($_GET['list']) && isset($_GET['cameraid'])) {

@@ -14,7 +14,6 @@
       <div id="pageContent"></div>
     </div>
   </div>
-</div>
 
 <?php
     include ('../theme/footer.inc.php');

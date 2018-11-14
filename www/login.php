@@ -9,27 +9,31 @@
     $error = NULL;
    
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-       // username and password sent from form 
-       
-        $myusername = mysqli_real_escape_string($db,$_POST['username']);
-        $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-       
-        $sql = "SELECT id FROM admin WHERE username = '$myusername' and password = '$mypassword'";
-        $result = mysqli_query($db,$sql);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-        $active = $row['active'];
-       
-        $count = mysqli_num_rows($result);
 
-        // If result matched $myusername and $mypassword, table row must be 1 row
-        if( $count == 1) {
-            $_SESSION['luser'] = $myusername;
+       $stmt = $db->prepare('SELECT id FROM admin WHERE username = ? and password = ?');
+
+       if ($stmt == false) {
+            $error = "An unknown database error has occured.";
+       } else {
+            $stmt->bind_param('ss',$_POST['username'],$_POST['password']);
+
+            $stmt->execute();
+            $stmt->bind_result($id);
+
+            if ($stmt->fetch()) {
+                $_SESSION['luser'] = $id;
+                header("Location: dashboard.php");
+                
+            } else {
+                $error = "Username or password invalid.";
+            }
             
-            header("Location: dashboard.php");
-        } else {
-            $error = "Username or password invalid.";
-        }
+            
+       }
+       $stmt->close();
     }
+
+    
 ?>
 <!doctype html>
 <html lang="en">

@@ -19,6 +19,7 @@
         $stmt->bind_result($file, $content);
         $stmt->fetch();
 
+        $stmt->close();
         // TO-DO: output content-type header
         print file_get_contents(FILE_RECORDINGS . DIRECTORY_SEPARATOR . $file);
 
@@ -44,6 +45,7 @@
             $data[] = array('id' => $id, 'timestamp' => $timestamp);
         }
 
+        $stmt->close();
         print json_encode($data);
 
     } elseif(isset($_GET['info']) && isset($_GET['id'])) {
@@ -62,6 +64,7 @@
         $stmt->fetch();
         $data = array('id' => $_GET['id'], 'timestamp' => $timestamp, 'content' => $content);
 
+        $stmt->close();
         print json_encode($data);
 
     } elseif(isset($_GET['getrecent'])) {
@@ -87,6 +90,7 @@
             $data[] = array('id' => $id, 'timestamp' => $timestamp);
         }
 
+        $stmt->close();
         print json_encode($data);
 
     } else {

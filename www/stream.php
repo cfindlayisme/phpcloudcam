@@ -15,6 +15,7 @@
         $stmt->bind_result($url, $content);
         $stmt->fetch();
 
+        $stmt->close();
         // TO-DO: sending out the stream
     } elseif(isset($_GET['labels'])) {
 
@@ -36,6 +37,7 @@
             $data[] = array('label' => $label, 'cameraid' => $cameraid);
         }
 
+        $stmt->close();
         print json_encode($data);
     }
 ?>

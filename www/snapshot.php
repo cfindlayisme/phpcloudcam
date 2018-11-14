@@ -25,6 +25,7 @@
             header("Content-type: image/jpeg");
         }
 
+        $stmt->close();
         // Grab the snapshot URL and send it out
         print file_get_contents($url);
 
@@ -49,6 +50,7 @@
                 $data[] = array('label' => $label, 'cameraid' => $cameraid);
         }
 
+        $stmt->close();
         print json_encode($data);
     } else {
 

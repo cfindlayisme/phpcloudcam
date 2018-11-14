@@ -1,5 +1,9 @@
 function viewLiveView(cameraid) {
+    
+}
 
+function viewRecording(id) {
+    document.getElementById('recordingsPlaybackSpace').innerHTML = '<video width="560" controls><source src="playback.php?id=' + id + '" type="video/mp4"></video>';
 }
 
 function viewSnapshot(cameraid) {
@@ -12,12 +16,12 @@ function viewRecentRecordings() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             myObj = JSON.parse(this.responseText);
-            txt += '<select>';
+            txt += '<select onchange="if (this.selectedIndex) viewRecording(this.selectedIndex);">';
             txt += '<option disabled selected value>--</option>';
             for (x in myObj) {
                 txt += '<option value="' + myObj[x].id + '">' + myObj[x].timestamp + '</option>';
             }
-            txt += '</select>';
+            txt += '</select><br><br>';
             txt += '<div id="recordingsPlaybackSpace"></div>';
             document.getElementById('pageContent').innerHTML = txt;
             document.getElementById('pageTitle').innerHTML = 'Recent Recordings';

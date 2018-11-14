@@ -7,7 +7,7 @@
 
     include('..' . DIRECTORY_SEPARATOR . 'theme' . DIRECTORY_SEPARATOR . 'header.inc.php');
 
-    include('..' . DIRECTORY_SEPARATOR . 'theme/sidenav.inc.php');
+    include('..' . DIRECTORY_SEPARATOR . 'theme' . DIRECTORY_SEPARATOR . 'sidenav.inc.php');
 ?>
     <div class="col-sm-9">
       <h2 id="pageTitle"></h2>

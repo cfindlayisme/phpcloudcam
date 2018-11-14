@@ -9,9 +9,4 @@
             <li class="nav-item" id="logoutNav"><a class="nav-link" href="logout.php">Logout</a></li>
             </ul><br>
 
-            <div class="input-group">
-            <h4>Recent Recordings</h4>
-            <div id="recentRecordings"></div>
-
-        </div>
     </div>

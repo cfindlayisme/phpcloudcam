@@ -59,7 +59,7 @@
 
         // Should only be one result since ID is the unique key
         $stmt->fetch();
-        $data = array('id' => $id, 'timestamp' => $timestamp, 'content' => $content);
+        $data = array('id' => $_GET['id'], 'timestamp' => $timestamp, 'content' => $content);
 
         print json_encode($data);
     }

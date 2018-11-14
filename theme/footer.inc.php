@@ -4,7 +4,8 @@
 ?>
 </div>
 <footer class="container-fluid">
-  <p class="footerText"></p>
+  <p><div id="footerText"></div><br>
+  <div id="licenseText">Produced by PHPCloudCam. Copyright 2018 Chuck Findlay. Released under the GNU Lesser General Public License v3.0</div></p>
 </footer>
 
 </body>

@@ -29,7 +29,7 @@
     }
 
     function snapShot(label, cameraid) {
-        document.getElementById('pageContent').innerHTML = '<img src="snapshot.php?cameraid=' + cameraid + '">';
+        document.getElementById('pageContent').innerHTML = '<img src="snapshot.php?cameraid=' + cameraid + '"><br>';
         document.getElementById('pageTitle').innerHTML = 'Snapshot of ' + label;
     }
 

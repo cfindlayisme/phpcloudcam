@@ -7,9 +7,7 @@ function viewSnapshot(cameraid) {
 }
 
 function viewRecentRecordings() {
-    var obj, dbParam, xmlhttp, myObj, x, txt = '';
-    obj = { table: 'recentRecordings', limit: 16 };
-    dbParam = JSON.stringify(obj);
+    var xmlhttp, myObj, x, txt = '';
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -32,9 +30,7 @@ function viewRecentRecordings() {
 
 // List snapshot cameras on the sidebar
 function viewSnapshotsList() {
-    var obj, dbParam, xmlhttp, myObj, x, txt = '';
-    obj = { table: 'cameraLabels', limit: 16 };
-    dbParam = JSON.stringify(obj);
+    var xmlhttp, myObj, x, txt = '';
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

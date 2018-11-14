@@ -6,9 +6,9 @@
     include('../session.php');
 
     // Given a camera ID to use
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $stmt = $db->prepare('SELECT url, content FROM snapshot_urls WHERE id = ?');
+    if (isset($_GET['cameraid'])) {
+        $id = $_GET['cameraid'];
+        $stmt = $db->prepare('SELECT snapshot_url, snapshot_content FROM cameras WHERE cameraid = ?');
 
         if ($stmt == false) {
             // TO-DO: Output something to signify list is empty. For now just die

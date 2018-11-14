@@ -6,8 +6,16 @@
     include('../session.php');
 
     include('../theme/header.inc.php');
+
+    include('../theme/sidenav.inc.php');
 ?>
-You're logged in! This is a placeholder page. To logout go to <a href="logout.php">this spot.</a>
+    <div class="col-sm-9">
+      <h2 id="pageTitle"></h2>
+      <div id="pageContent"></div>
+    </div>
+  </div>
+</div>
+
 <?php
     include ('../theme/footer.inc.php');
 ?>

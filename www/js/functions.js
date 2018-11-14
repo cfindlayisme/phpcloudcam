@@ -1,8 +1,8 @@
-function liveView(cameraid) {
+function viewLiveView(cameraid) {
 
 }
 
-function snapShot(label, cameraid) {
+function viewSnapShot(label, cameraid) {
     document.getElementById('pageContent').innerHTML = '<img src="snapshot.php?cameraid=' + cameraid + '"><br>';
     document.getElementById('pageTitle').innerHTML = 'Snapshot of ' + label;
 }
@@ -42,7 +42,7 @@ function snapCamerasList() {
             myObj = JSON.parse(this.responseText);
             txt += '<ul class="nav nav-pills nav-stacked">';
             for (x in myObj) {
-                txt += '<li><a href="#" class="nav-link" onclick="snapShot(\'' + myObj[x].label + '\', ' + myObj[x].cameraid + ');">' + myObj[x].label + '</a></li>';
+                txt += '<li><a href="#" class="nav-link" onclick="viewSnapShot(\'' + myObj[x].label + '\', ' + myObj[x].cameraid + ');">' + myObj[x].label + '</a></li>';
             }
             txt += '</ul>';
             document.getElementById('snapCameraList').innerHTML = txt;

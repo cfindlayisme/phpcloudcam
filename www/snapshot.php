@@ -37,15 +37,16 @@
             $limit = 16;
         }
 
-        $stmt = $db->prepare('SELECT label, cameraid FROM cameras LIMIT ?');
+        $stmt = $db->prepare('SELECT label, cameraid, snapshot_url FROM cameras LIMIT ?');
         $stmt->bind_param('i',$limit);
 
         $stmt->execute();
-        $stmt->bind_result($label, $cameraid);
+        $stmt->bind_result($label, $cameraid, $snapshot_url);
 
         $data = array();
         while ( $stmt->fetch() ) {
-            $data[] = array('label' => $label, 'cameraid' => $cameraid);
+            if ($snapshot_url != NULL) // If there is a null snapshot URL then no snapshot set up for this camera
+                $data[] = array('label' => $label, 'cameraid' => $cameraid);
         }
 
         print json_encode($data);

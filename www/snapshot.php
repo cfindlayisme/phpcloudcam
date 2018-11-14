@@ -26,7 +26,7 @@
         }
 
         // Grab the snapshot URL and send it out
-        echo file_get_contents($url);
+        print file_get_contents($url);
 
     } elseif(isset($_GET['labels'])) {
 

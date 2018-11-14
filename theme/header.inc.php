@@ -14,4 +14,7 @@
 
 </head>
 <body>
+  <header class="container-fluid">
+            <div id="headerText"></div>
+  </header>
   <div class="container-fluid fill">

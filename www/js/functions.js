@@ -3,7 +3,7 @@ function viewLiveView(cameraid) {
 }
 
 function viewSnapshot(cameraid) {
-    document.getElementById('snaphotSpace').innerHTML = '<img src="snapshot.php?cameraid=' + cameraid + '"><br>';
+    document.getElementById('snapshotSpace').innerHTML = '<img src="snapshot.php?cameraid=' + cameraid + '"><br>';
 }
 
 function viewRecentRecordings() {

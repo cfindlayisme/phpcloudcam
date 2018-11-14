@@ -1,5 +1,5 @@
     <div class="row content">
-        <div class="col-sm-3 sidenav">
+        <div class="col-sm-3 sidenav content">
             <h4 class="siteTitle">PHPCloudCam</h4>
 
             <ul class="nav nav-pills nav-stacked">
@@ -9,4 +9,4 @@
             <li class="nav-item" id="logoutNav"><a class="nav-link" href="logout.php">Logout</a></li>
             </ul><br>
 
-    </div>
+        </div>

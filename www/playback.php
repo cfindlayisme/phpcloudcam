@@ -67,6 +67,33 @@
         $stmt->close();
         print json_encode($data);
 
+    } elseif(isset($_GET['count']) && isset($_GET['from']) && isset($_GET['to'])) {
+
+        $date1 = $_GET['from'] . ' 00:00:00';
+        $date2 = $_GET['to'] . ' 23:59:59';
+
+        if (isset($_GET['cameraid'])) {
+            $stmt = $db->prepare('SELECT COUNT(*) FROM recordings WHERE cameraid = ? AND timestamp BETWEEN ? AND ?');
+            $stmt->bind_param('iss', $_GET['cameraid'], $date1, $date2);
+        } else {
+            $stmt = $db->prepare('SELECT COUNT(*) FROM recordings WHERE timestamp BETWEEN ? AND ?');
+            $stmt->bind_param('ss', $date1, $date2);
+        }
+       
+        if ($stmt == false) {
+            // TO-DO: Output something to signify list is empty. For now just die
+            die('Nothing found');
+        }
+
+        $stmt->execute();
+        $stmt->bind_result($count);
+        $stmt->fetch();
+
+        $data = array('count' => $count, 'from' => $date1, 'to' => $date2);
+
+        $stmt->close();
+        print json_encode($data);
+
     } elseif(isset($_GET['getrecent'])) {
 
         $listLimit = 16;

@@ -16,6 +16,8 @@
         <script src="<?php print JQUERY_JS; ?>"></script>
         <!-- Bootstrap -->
         <script src="<?php print BOOTSTRAP_JS; ?>"></script>
+        <!-- Chart.js -->
+        <script src="<?php print CHART_JS; ?>"></script>
         <!-- Our functions -->
         <script src="js/functions.js"></script>
     </body>

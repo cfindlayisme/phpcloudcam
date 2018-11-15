@@ -10,6 +10,13 @@ function viewSnapshot(cameraid) {
     $('#snapshotSpace').html('<img width="560" class="img-fluid img-rounded" src="snapshot.php?cameraid=' + cameraid + '"><br>');
 }
 
+function navSelected(selected) {
+    $('.nav-item').each(function() {
+        $(this).removeClass('active');
+    });
+    $(selected).addClass('active');
+}
+
 function viewRecentRecordings() {
     var txt = '';
     $.getJSON('playback.php?getrecent=&limit=16', function(jd) {

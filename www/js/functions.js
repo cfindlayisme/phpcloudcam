@@ -55,7 +55,7 @@ function navSelected(selected) {
     $(selected).addClass('active');
 }
 
-function viewRecentRecordings() {
+function viewRecentActivity() {
     var txt = '';
     $.getJSON('playback.php?getrecent=&limit=16', function(jd) {
             txt += '<select onchange="if (this.selectedIndex) viewRecording(this.selectedIndex);">';
@@ -66,7 +66,7 @@ function viewRecentRecordings() {
             txt += '</select><br><br>';
             txt += '<div id="recordingsPlaybackSpace"></div>';
             $('#pageContent').html(txt);
-            $('#pageTitle').html('Recent Recordings');
+            $('#pageTitle').html('Recent Activity');
     });
 }
 
@@ -83,4 +83,9 @@ function viewSnapshotsList() {
             $('#pageContent').html(txt);
             $('#pageTitle').html('Live Snapshots');
     });
+}
+
+function viewListRecordings() {
+    $('#pageContent').html('');
+    $('#pageTitle').html('Recordings by List');
 }

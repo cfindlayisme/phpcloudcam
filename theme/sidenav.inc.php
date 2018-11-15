@@ -5,7 +5,8 @@
             <li class="nav-item active" id="dashboardNav" onclick="navSelected(this);"><a class="nav-link" onclick="viewDashboard();" href="#">Dashboard</a></li>
             <li class="nav-item" id="accountSettingsNav" onclick="navSelected(this);"><a class="nav-link" onclick="viewAccountSettings();" href="#">Account Settings</a></li>
             <li class="nav-item" id="snapshotNav" onclick="navSelected(this);"><a class="nav-link" onclick="viewSnapshotsList();" href="#">Live Snapshots</a></li>
-            <li class="nav-item" id="recentRecordingsNav" onclick="navSelected(this);"><a class="nav-link" onclick="viewRecentRecordings();" href="#">Recent Recordings</a></li>
+            <li class="nav-item" id="recentActivityNav" onclick="navSelected(this);"><a class="nav-link" onclick="viewRecentActivity();" href="#">Recent Activity</a></li>
+            <li class="nav-item" id="listRecordingsNav" onclick="navSelected(this);"><a class="nav-link" onclick="viewListRecordings();" href="#">Recordings by List</a></li>
             </ul><br>
 
         </div>

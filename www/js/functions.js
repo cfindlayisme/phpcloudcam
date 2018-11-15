@@ -7,6 +7,11 @@ function viewDashboard() {
     $('#pageTitle').html('Dashboard');
 }
 
+function viewAccountSettings() {
+    $('#pageContent').html('');
+    $('#pageTitle').html('Account Settings');
+}
+
 function viewRecording(id) {
     $('#recordingsPlaybackSpace').html('<video width="560" controls><source src="playback.php?id=' + id + '" type="video/mp4"></video>');
 }

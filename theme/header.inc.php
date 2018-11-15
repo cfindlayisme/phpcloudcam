@@ -5,12 +5,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PHPCloudCam</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PHPCloudCam</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="<?php print BOOTSTRAP_CSS; ?>">
-  <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="<?php print BOOTSTRAP_CSS; ?>">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- jQuery -->
+    <script src="<?php print JQUERY_JS; ?>"></script>
+    <!-- Bootstrap -->
+    <script src="<?php print BOOTSTRAP_JS; ?>"></script>
+    <!-- Chart.js -->
+    <script src="<?php print CHART_JS; ?>"></script>
+    <!-- Our functions -->
+    <script src="js/functions.js"></script>
 
 </head>
 <body>

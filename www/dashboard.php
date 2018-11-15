@@ -14,6 +14,10 @@
       <div id="pageContent"></div>
     </div>
 
+    <script type="text/javascript">
+        window.onload = viewDashboard();
+    </script>
+
 <?php
     include ('..' . DIRECTORY_SEPARATOR . 'theme' . DIRECTORY_SEPARATOR . 'footer.inc.php');
 ?>

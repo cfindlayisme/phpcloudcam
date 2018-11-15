@@ -2,6 +2,11 @@ function viewLiveView(cameraid) {
     
 }
 
+function viewDashboard() {
+    $('#pageContent').html('');
+    $('#pageTitle').html('Dashboard');
+}
+
 function viewRecording(id) {
     $('#recordingsPlaybackSpace').html('<video width="560" controls><source src="playback.php?id=' + id + '" type="video/mp4"></video>');
 }

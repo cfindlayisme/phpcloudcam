@@ -1,3 +1,7 @@
+// Copyright 2018 Chuck Findlay
+// This file is part of PHPCloudCam
+// PHPCloudCam is licensed under the GNU Lesser General Public License v3.0
+
 function viewLiveView(cameraid) {
     
 }

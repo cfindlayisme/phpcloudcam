@@ -1,6 +1,7 @@
 <?php
     // Copyright 2018 Chuck Findlay
-    // This software is licensed under the GNU Lesser General Public License v3.0
+    // This file is part of PHPCloudCam
+    // PHPCloudCam is licensed under the GNU Lesser General Public License v3.0
 
     // Our session bit needs to be in here first. It'll kick out anyone who is not logged in
     include('..' . DIRECTORY_SEPARATOR . 'session.php');

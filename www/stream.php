@@ -1,6 +1,7 @@
 <?php
     // Copyright 2018 Chuck Findlay
-    // This software is licensed under the GNU Lesser General Public License v3.0
+    // This file is part of PHPCloudCam
+    // PHPCloudCam is licensed under the GNU Lesser General Public License v3.0
 
     // No need for header or footer - we just output a stream. But users do need to be logged in
     include('..' . DIRECTORY_SEPARATOR . 'session.php');

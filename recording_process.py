@@ -1,5 +1,6 @@
 # Copyright 2018 Chuck Findlay
-# This software is licensed under the GNU Lesser General Public License v3.0
+# This file is part of PHPCloudCam
+# PHPCloudCam is licensed under the GNU Lesser General Public License v3.0
 
 # Our imports
 import configparser

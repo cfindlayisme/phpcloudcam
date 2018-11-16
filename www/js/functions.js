@@ -58,13 +58,13 @@ function navSelected(selected) {
 function viewRecentActivity() {
     var txt = '';
     $.getJSON('playback.php?getrecent=&limit=16', function(jd) {
-            txt += '<select onchange="if (this.selectedIndex) viewRecording(this.selectedIndex);">';
-            txt += '<option disabled selected value>--</option>';
+            txt += '<select onchange="if (this.selectedIndex) viewRecording(this.selectedIndex);">\
+                        <option disabled selected value>--</option>';
             $.each(jd, function(key, val) {
                 txt += '<option value="' + val.id + '">' + val.timestamp + '</option>';
             });
-            txt += '</select><br><br>';
-            txt += '<div id="recordingsPlaybackSpace"></div>';
+            txt += '</select><br><br>\
+                    <div id="recordingsPlaybackSpace"></div>';
             $('#pageContent').html(txt);
             $('#pageTitle').html('Recent Activity');
     });
@@ -86,6 +86,34 @@ function viewSnapshotsList() {
 }
 
 function viewListRecordings() {
-    $('#pageContent').html('');
+    var txt = '';
+
+    // TODO: link into playback.php below so that the data prints out
+    $.getJSON('', function(jd) {
+        txt += '<table class="table">\
+                    <thead>\
+                        <tr>\
+                        <th scope="col">#</th>\
+                        <th scope="col">Camera</th>\
+                        <th scope="col">Date</th>\
+                        </tr>\
+                    </thead>\
+                    <tbody>';
+        
+        $.each(jd, function(key, val) {
+            txt += '<tr>\
+                        <th scope="row">1</th>\
+                        <td>' + val.id + '</td>\
+                        <td>' + val.cameraid + '</td>\
+                        <td>' + val.timestamp + '</td>\
+                    </tr>'
+        });
+
+        txt += '</tbody>\
+                </table>';
+
+        $('#pageContent').html(txt);
+    });
+
     $('#pageTitle').html('Recordings by List');
 }

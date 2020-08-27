@@ -1,3 +1,6 @@
+# Abandoned!
+This project was abandoned before I even finished implementing it due to just replacing the cameras I was using at the time with some cloud based ones. It's just here for reference only at this point.
+
 ## License
 This software is licensed under the GNU Lesser General Public License v3.0.
 
